@@ -8,7 +8,8 @@ import javax.validation.constraints.NotNull;
 
 public class AutorResponse {
 
-    private @NotEmpty @NotNull @Email String email;
+    private @NotEmpty @NotNull @Email
+    String email;
     private @NotEmpty @NotNull String nome;
     private @NotEmpty @NotNull @Length(max = 399) String descricao;
 

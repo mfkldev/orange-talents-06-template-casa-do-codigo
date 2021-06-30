@@ -1,5 +1,6 @@
 package br.com.zupacademy.marciosouza.casadocodigo.controller.dto;
 
+import br.com.zupacademy.marciosouza.casadocodigo.config.validation.Unico;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Autor;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Email;
@@ -8,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 public class AutorRequest{
 
-    @NotEmpty @NotNull @Email
+    @NotEmpty @NotNull @Email @Unico(clazz = Autor.class, fieldName = "email", message = "Autor já existente")
     private String email;
 
     @NotEmpty @NotNull
@@ -24,8 +25,7 @@ public class AutorRequest{
     }
 
     public Autor converter() {
-        Autor autor = new Autor(this.email, this.nome, this.descricao);
-        return autor;
+        return new Autor(this.email, this.nome, this.descricao);
     }
 
     public String getEmail() {
