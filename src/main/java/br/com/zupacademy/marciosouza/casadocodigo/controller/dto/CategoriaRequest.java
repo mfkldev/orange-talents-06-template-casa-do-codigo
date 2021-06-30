@@ -1,6 +1,6 @@
-package br.com.zupacademy.marciosouza.cadadocodigo.controller.dto;
+package br.com.zupacademy.marciosouza.casadocodigo.controller.dto;
 
-import br.com.zupacademy.marciosouza.cadadocodigo.model.Categoria;
+import br.com.zupacademy.marciosouza.casadocodigo.model.Categoria;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 import javax.validation.constraints.NotEmpty;

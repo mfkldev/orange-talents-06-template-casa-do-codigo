@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.zupacademy.marciosouza</groupId>
-	<artifactId>cada-do-codigo</artifactId>
+	<artifactId>casa-do-codigo</artifactId>
 	<version>0.0.3</version>
-	<name>cada-do-codigo</name>
+	<name>casa-do-codigo</name>
 	<description>Implementando o desafio da casa do codigo</description>
 	<properties>
 		<java.version>11</java.version>

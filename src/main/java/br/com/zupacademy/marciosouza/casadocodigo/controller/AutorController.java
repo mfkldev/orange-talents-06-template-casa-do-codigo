@@ -1,14 +1,14 @@
-package br.com.zupacademy.marciosouza.cadadocodigo.controller;
+package br.com.zupacademy.marciosouza.casadocodigo.controller;
 
-import br.com.zupacademy.marciosouza.cadadocodigo.controller.dto.AutorRequest;
-import br.com.zupacademy.marciosouza.cadadocodigo.controller.dto.AutorResponse;
-import br.com.zupacademy.marciosouza.cadadocodigo.model.Autor;
-import br.com.zupacademy.marciosouza.cadadocodigo.repository.AutorRepository;
+import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.AutorRequest;
+import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.AutorResponse;
+import br.com.zupacademy.marciosouza.casadocodigo.model.Autor;
+import br.com.zupacademy.marciosouza.casadocodigo.repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import br.com.zupacademy.marciosouza.cadadocodigo.config.validation.EmailAutorDuplicadoValidator;
+import br.com.zupacademy.marciosouza.casadocodigo.config.validation.EmailAutorDuplicadoValidator;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 

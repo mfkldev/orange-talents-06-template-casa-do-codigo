@@ -1,4 +1,4 @@
-package br.com.zupacademy.marciosouza.cadadocodigo.model;
+package br.com.zupacademy.marciosouza.casadocodigo.model;
 
 import javax.persistence.*;
 

@@ -1,10 +1,10 @@
-package br.com.zupacademy.marciosouza.cadadocodigo.controller;
+package br.com.zupacademy.marciosouza.casadocodigo.controller;
 
-import br.com.zupacademy.marciosouza.cadadocodigo.controller.dto.CategoriaRequest;
-import br.com.zupacademy.marciosouza.cadadocodigo.controller.dto.CategoriaResponse;
-import br.com.zupacademy.marciosouza.cadadocodigo.config.validation.NomeCategoriaDuplicadoValidator;
-import br.com.zupacademy.marciosouza.cadadocodigo.model.Categoria;
-import br.com.zupacademy.marciosouza.cadadocodigo.repository.CategoriaRepository;
+import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.CategoriaRequest;
+import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.CategoriaResponse;
+import br.com.zupacademy.marciosouza.casadocodigo.config.validation.NomeCategoriaDuplicadoValidator;
+import br.com.zupacademy.marciosouza.casadocodigo.model.Categoria;
+import br.com.zupacademy.marciosouza.casadocodigo.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;

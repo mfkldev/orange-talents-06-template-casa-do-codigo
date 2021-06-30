@@ -1,8 +1,8 @@
-package br.com.zupacademy.marciosouza.cadadocodigo.config.validation;
+package br.com.zupacademy.marciosouza.casadocodigo.config.validation;
 
-import br.com.zupacademy.marciosouza.cadadocodigo.controller.dto.AutorRequest;
-import br.com.zupacademy.marciosouza.cadadocodigo.model.Autor;
-import br.com.zupacademy.marciosouza.cadadocodigo.repository.AutorRepository;
+import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.AutorRequest;
+import br.com.zupacademy.marciosouza.casadocodigo.model.Autor;
+import br.com.zupacademy.marciosouza.casadocodigo.repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

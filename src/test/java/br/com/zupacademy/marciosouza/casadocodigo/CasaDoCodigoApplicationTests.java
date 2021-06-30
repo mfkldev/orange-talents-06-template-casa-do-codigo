@@ -1,10 +1,10 @@
-package br.com.zupacademy.marciosouza.cadadocodigo;
+package br.com.zupacademy.marciosouza.casadocodigo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CadaDoCodigoApplicationTests {
+class CasaDoCodigoApplicationTests {
 
 	@Test
 	void contextLoads() {
