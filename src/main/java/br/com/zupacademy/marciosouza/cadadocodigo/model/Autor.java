@@ -6,17 +6,13 @@ import java.time.LocalDateTime;
 @Entity
 public class Autor {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false)
-    private LocalDateTime dataCriacao = LocalDateTime.now();
-    @Column(nullable = false)
-    private String email;
-    @Column(nullable = false)
-    private String nome;
-    @Column(nullable = false, length = 400)
-    private String descricao;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+    private @Column(nullable = false) LocalDateTime dataCriacao = LocalDateTime.now();
+    private @Column(nullable = false) String email;
+    private @Column(nullable = false) String nome;
+    private @Column(nullable = false, length = 400) String descricao;
 
+    @Deprecated
     public Autor(){}
 
     public Autor(String email, String nome, String descricao) {

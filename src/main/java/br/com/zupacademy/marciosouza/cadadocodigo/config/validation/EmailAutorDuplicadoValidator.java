@@ -1,4 +1,4 @@
-package br.com.zupacademy.marciosouza.cadadocodigo.controller.validation;
+package br.com.zupacademy.marciosouza.cadadocodigo.config.validation;
 
 import br.com.zupacademy.marciosouza.cadadocodigo.controller.dto.AutorRequest;
 import br.com.zupacademy.marciosouza.cadadocodigo.model.Autor;
@@ -10,7 +10,7 @@ import org.springframework.validation.Validator;
 import java.util.Optional;
 
 @Component
-public class EmailDuplicadoValidator implements Validator {
+public class EmailAutorDuplicadoValidator implements Validator {
 
     @Autowired
     private AutorRepository autorRepository;
@@ -27,7 +27,7 @@ public class EmailDuplicadoValidator implements Validator {
         }
 
         AutorRequest autorRequest = (AutorRequest) obj;
-        Optional<Autor> autorDoBanco = autorRepository.findByEmail(autorRequest.getEmail());
+        Optional<Autor> autorDoBanco = autorRepository.getByEmail(autorRequest.getEmail());
 
         if (autorDoBanco.isPresent()){
             errors.rejectValue("email", null, "e-mail já existente");

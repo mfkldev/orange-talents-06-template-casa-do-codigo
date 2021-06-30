@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import br.com.zupacademy.marciosouza.cadadocodigo.controller.validation.EmailDuplicadoValidator;
-
+import br.com.zupacademy.marciosouza.cadadocodigo.config.validation.EmailAutorDuplicadoValidator;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -21,10 +20,10 @@ public class AutorController {
     private AutorRepository autorRepository;
 
     @Autowired
-    private EmailDuplicadoValidator emailDuplicadoValidator;
+    private EmailAutorDuplicadoValidator emailDuplicadoValidator;
 
     @InitBinder
-    public void init(WebDataBinder binder){ //Executado no primeiro request do Controller
+    public void init(WebDataBinder binder){
         binder.addValidators(emailDuplicadoValidator);
     }
 
