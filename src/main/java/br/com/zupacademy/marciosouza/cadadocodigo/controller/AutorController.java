@@ -1,14 +1,15 @@
 package br.com.zupacademy.marciosouza.cadadocodigo.controller;
 
 import br.com.zupacademy.marciosouza.cadadocodigo.controller.dto.AutorRequest;
+import br.com.zupacademy.marciosouza.cadadocodigo.controller.dto.AutorResponse;
 import br.com.zupacademy.marciosouza.cadadocodigo.model.Autor;
 import br.com.zupacademy.marciosouza.cadadocodigo.repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+import br.com.zupacademy.marciosouza.cadadocodigo.controller.validation.EmailDuplicadoValidator;
+
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -19,13 +20,21 @@ public class AutorController {
     @Autowired
     private AutorRepository autorRepository;
 
+    @Autowired
+    private EmailDuplicadoValidator emailDuplicadoValidator;
+
+    @InitBinder
+    public void init(WebDataBinder binder){ //Executado no primeiro request do Controller
+        binder.addValidators(emailDuplicadoValidator);
+    }
+
     @PostMapping
     @Transactional
-    public ResponseEntity<?> salvar(@RequestBody @Valid AutorRequest autorRequest){
+    public ResponseEntity<AutorResponse> salvar(@RequestBody @Valid AutorRequest autorRequest){
         Autor autor = autorRequest.converter();
         autorRepository.save(autor);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(new AutorResponse(autor));
     }
 
 }

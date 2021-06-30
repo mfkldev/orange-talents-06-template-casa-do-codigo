@@ -27,4 +27,8 @@ public class AutorRequest{
         Autor autor = new Autor(this.email, this.nome, this.descricao);
         return autor;
     }
+
+    public String getEmail() {
+        return this.email;
+    }
 }
