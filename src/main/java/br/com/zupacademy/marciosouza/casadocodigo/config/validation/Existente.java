@@ -7,13 +7,13 @@ import java.lang.annotation.*;
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = DuplicadoValidator.class)
-public @interface Unico {
+@Constraint(validatedBy = ExistenteValidator.class)
+public @interface Existente {
 
     Class[] groups() default { };
     Class<? extends Payload>[] payload() default { };
 
-    String message() default "Atributo repetido";
+    String message() default "Valor de atributo não encontrado";
     String fieldName();
     Class<?> clazz();
 }

@@ -1,4 +1,4 @@
-package br.com.zupacademy.marciosouza.casadocodigo.config.validation;
+package br.com.zupacademy.marciosouza.casadocodigo.config.json;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

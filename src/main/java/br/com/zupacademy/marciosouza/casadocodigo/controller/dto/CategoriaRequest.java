@@ -3,13 +3,11 @@ package br.com.zupacademy.marciosouza.casadocodigo.controller.dto;
 import br.com.zupacademy.marciosouza.casadocodigo.config.validation.Unico;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Categoria;
 import com.fasterxml.jackson.annotation.JsonCreator;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class CategoriaRequest {
 
-    @NotEmpty @NotNull @Unico(clazz = Categoria.class, fieldName = "nome", message = "Categoria já existente")
+    @NotBlank @Unico(clazz = Categoria.class, fieldName = "nome")
     private String nome;
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)

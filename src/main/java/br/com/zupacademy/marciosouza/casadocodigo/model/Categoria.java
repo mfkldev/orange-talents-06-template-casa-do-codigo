@@ -1,17 +1,23 @@
 package br.com.zupacademy.marciosouza.casadocodigo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Categoria {
 
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long Id;
 
-    @Column(nullable = false)
+    @NotBlank @Column(nullable = false, unique = true)
     private String nome;
 
+    @OneToMany(mappedBy = "categoria")
+    private List<Livro> listaLivro = new ArrayList<>();
+
     @Deprecated
-    private Categoria(){}
+    public Categoria(){}
 
     public Categoria(String nome) {
         this.nome = nome;
@@ -20,6 +26,4 @@ public class Categoria {
     public String getNome(){
         return nome;
     }
-
-
 }

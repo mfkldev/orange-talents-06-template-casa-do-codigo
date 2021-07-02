@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface AutorRepository extends JpaRepository<Autor, Long> {
-    Optional<Autor> getByEmail(String email);
+    Optional<Autor> getByNome(String nomeAutor);
 }
