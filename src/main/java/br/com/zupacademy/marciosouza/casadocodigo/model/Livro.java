@@ -56,7 +56,7 @@ public class Livro {
         this.categoria = categoria;
         this.autor = autor;
     }
-    
+
     public String getTitulo() {
         return titulo;
     }

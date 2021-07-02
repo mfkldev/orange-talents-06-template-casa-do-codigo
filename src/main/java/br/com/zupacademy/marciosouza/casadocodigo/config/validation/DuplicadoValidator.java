@@ -29,7 +29,6 @@ public class DuplicadoValidator implements ConstraintValidator<Unico, Object>{
         String jpql = "SELECT x FROM " + clazz.getName() + " x WHERE x." + fieldName + " = :pCampo";
         Query query = entityManager.createQuery(jpql).setParameter("pCampo", value);
         List<?> list = query.getResultList();
-        Assert.state(list.size() <= 1, "Já está presente um " + clazz.getName() + "com o atributo " + fieldName + " = " + value );
 
         return list.isEmpty();
     }

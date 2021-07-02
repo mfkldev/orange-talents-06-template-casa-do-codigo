@@ -4,37 +4,27 @@ import br.com.zupacademy.marciosouza.casadocodigo.model.Autor;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Categoria;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Livro;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class LivroResponse {
 
-    @NotBlank
     private String titulo;
-
-    @NotBlank
     private String resumo;
-
     private String sumario;
-
-    private @NotNull @NotEmpty @Min(20)
-    BigDecimal preco;
-
-    @NotNull @NotEmpty @Min(100)
+    private BigDecimal preco;
     private Integer numeroDePaginas;
-
-    @NotNull @NotEmpty
     private String isbn;
 
     @Future
     @JsonFormat(pattern = "dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate dataIrAoAr;
 
-    @NotNull
     private Categoria categoria;
-
-    @NotNull
     private Autor autor;
 
     public LivroResponse(Livro livro) {
@@ -47,6 +37,10 @@ public class LivroResponse {
         this.dataIrAoAr = livro.getDataIrAoAr();
         this.categoria = livro.getCategoria();
         this.autor = livro.getAutor();
+    }
+
+    public static Page<LivroResponse> ConvertePageLivroToPageDto(Page<Livro> pageLivro) {
+        return pageLivro.map(LivroResponse::new);
     }
 
     public String getTitulo() {
