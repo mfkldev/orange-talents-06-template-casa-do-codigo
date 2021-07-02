@@ -39,10 +39,6 @@ public class LivroResponse {
         this.autor = livro.getAutor();
     }
 
-    public static Page<LivroResponse> ConvertePageLivroToPageDto(Page<Livro> pageLivro) {
-        return pageLivro.map(LivroResponse::new);
-    }
-
     public String getTitulo() {
         return titulo;
     }

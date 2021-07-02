@@ -92,4 +92,6 @@ public class Livro {
     public Autor getAutor() {
         return autor;
     }
+
+    public Long getId() { return id; }
 }

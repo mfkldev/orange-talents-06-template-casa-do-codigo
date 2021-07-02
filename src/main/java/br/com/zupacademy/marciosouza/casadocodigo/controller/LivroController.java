@@ -2,6 +2,7 @@ package br.com.zupacademy.marciosouza.casadocodigo.controller;
 
 import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.LivroRequest;
 import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.LivroResponse;
+import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.LivroResponseIdETitulo;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Livro;
 import br.com.zupacademy.marciosouza.casadocodigo.repository.AutorRepository;
 import br.com.zupacademy.marciosouza.casadocodigo.repository.CategoriaRepository;
@@ -45,8 +46,8 @@ public class LivroController {
 
     @GetMapping
     @Cacheable(value = "listar_todos")
-    public Page<LivroResponse> listar_todos(@PageableDefault (sort = "id", direction = Sort.Direction.DESC, page = 0, size = 1) Pageable page){
+    public Page<LivroResponseIdETitulo> listar_todos(@PageableDefault (sort = "id", direction = Sort.Direction.DESC, page = 0, size = 1) Pageable page){
 
-        return LivroResponse.ConvertePageLivroToPageDto(livroRepository.findAll(page));
+        return LivroResponseIdETitulo.ConvertePageLivroToPageDto(livroRepository.findAll(page));
     }
 }
