@@ -89,9 +89,7 @@ public class Livro {
         return categoria;
     }
 
-    public Autor getAutor() {
-        return autor;
-    }
+    public Autor getAutor() { return autor; }
 
     public Long getId() { return id; }
 }
