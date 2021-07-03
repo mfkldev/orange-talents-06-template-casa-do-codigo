@@ -1,4 +1,4 @@
-package br.com.zupacademy.marciosouza.casadocodigo.config.json;
+package br.com.zupacademy.marciosouza.casadocodigo.config.exceptions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -31,5 +31,13 @@ public class ErroDeValidacaoHandler {
         });
 
         return listErrosReponse;
+    }
+
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(EstadoCadastradoNoPaisException.class)
+    public ErrosReponse handle2(EstadoCadastradoNoPaisException exception){
+
+        return new ErrosReponse("idPais", exception.getMessage()); //Refatorar quando for Pleno daqui a 2 meses.
+//      return new ErrosReponse(HttpStatus.NOT_FOUND.toString(), exception.getMessage());
     }
 }

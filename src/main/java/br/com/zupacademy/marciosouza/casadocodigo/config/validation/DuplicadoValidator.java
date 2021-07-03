@@ -1,7 +1,6 @@
 package br.com.zupacademy.marciosouza.casadocodigo.config.validation;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -9,7 +8,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.List;
 
-public class DuplicadoValidator implements ConstraintValidator<Unico, Object>{
+public class DuplicadoValidator implements ConstraintValidator<Duplicado, Object>{
 
     @Autowired
     private EntityManager entityManager;
@@ -18,8 +17,7 @@ public class DuplicadoValidator implements ConstraintValidator<Unico, Object>{
     private String fieldName;
 
     @Override
-    public void initialize(Unico constraintAnnotation) {
-        ConstraintValidator.super.initialize(constraintAnnotation);
+    public void initialize(Duplicado constraintAnnotation) {
         this.fieldName = constraintAnnotation.fieldName();
         this.clazz = constraintAnnotation.clazz();
     }

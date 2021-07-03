@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = DuplicadoValidator.class)
-public @interface Unico {
+public @interface Duplicado {
 
     Class[] groups() default { };
     Class<? extends Payload>[] payload() default { };

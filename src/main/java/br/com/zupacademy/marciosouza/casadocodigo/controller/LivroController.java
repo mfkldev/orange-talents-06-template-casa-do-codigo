@@ -38,6 +38,7 @@ public class LivroController {
     @Transactional
     @CacheEvict(value = "listar_todos", allEntries = true)
     public ResponseEntity<LivroResponse> cadastrar(@RequestBody @Valid LivroRequest livroRequest){
+
         Livro livro = livroRequest.converterReqToLivro(autorRepository, categoriaRepository);
         livroRepository.save(livro);
         LivroResponse livroResponse = new LivroResponse(livro);

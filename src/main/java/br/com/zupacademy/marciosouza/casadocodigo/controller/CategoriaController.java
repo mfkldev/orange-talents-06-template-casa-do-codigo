@@ -18,7 +18,7 @@ public class CategoriaController {
     private CategoriaRepository categoriaRepository;
 
     @PostMapping @Transactional
-    public ResponseEntity<CategoriaResponse> salvar(@RequestBody @Valid CategoriaRequest categoriaRequest){
+    public ResponseEntity<CategoriaResponse> cadastrar(@RequestBody @Valid CategoriaRequest categoriaRequest){
         Categoria categoria = categoriaRequest.converter();
         categoriaRepository.save(categoria);
 

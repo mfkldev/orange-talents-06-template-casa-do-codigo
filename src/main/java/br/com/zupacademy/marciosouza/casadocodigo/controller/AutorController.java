@@ -19,7 +19,7 @@ public class AutorController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<AutorResponse> salvar(@RequestBody @Valid AutorRequest autorRequest){
+    public ResponseEntity<AutorResponse> cadastrar(@RequestBody @Valid AutorRequest autorRequest){
         Autor autor = autorRequest.converter();
         autorRepository.save(autor);
 

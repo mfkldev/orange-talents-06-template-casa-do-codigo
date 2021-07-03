@@ -1,4 +1,4 @@
-package br.com.zupacademy.marciosouza.casadocodigo.config.json;
+package br.com.zupacademy.marciosouza.casadocodigo.config.exceptions;
 
 public class ErrosReponse {
 

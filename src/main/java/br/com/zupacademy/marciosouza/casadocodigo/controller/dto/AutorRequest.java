@@ -1,6 +1,6 @@
 package br.com.zupacademy.marciosouza.casadocodigo.controller.dto;
 
-import br.com.zupacademy.marciosouza.casadocodigo.config.validation.Unico;
+import br.com.zupacademy.marciosouza.casadocodigo.config.validation.Duplicado;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Autor;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Email;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 public class AutorRequest{
 
-    @NotBlank @Email @Unico(clazz = Autor.class, fieldName = "email")
+    @NotBlank @Email @Duplicado(clazz = Autor.class, fieldName = "email")
     private String email;
 
     @NotBlank
