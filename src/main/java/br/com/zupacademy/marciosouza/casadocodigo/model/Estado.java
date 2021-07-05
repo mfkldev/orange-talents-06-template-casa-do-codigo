@@ -2,6 +2,8 @@ package br.com.zupacademy.marciosouza.casadocodigo.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Estado {
@@ -14,6 +16,9 @@ public class Estado {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Pais pais;
+
+    @OneToMany(mappedBy = "estado")
+    private List<Cliente> clientes = new ArrayList<>();
 
     @Deprecated
     public Estado() {}

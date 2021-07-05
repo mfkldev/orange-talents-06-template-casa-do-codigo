@@ -1,6 +1,6 @@
 package br.com.zupacademy.marciosouza.casadocodigo.controller;
 
-import br.com.zupacademy.marciosouza.casadocodigo.config.exceptions.EstadoCadastradoNoPaisException;
+import br.com.zupacademy.marciosouza.casadocodigo.config.exceptions.EstadoIllegalArumentExcpetion;
 import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.EstadoRequest;
 import br.com.zupacademy.marciosouza.casadocodigo.controller.dto.EstadoResponse;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Estado;
@@ -33,17 +33,10 @@ public class EstadoController {
     @PostMapping
     @Transactional
     public ResponseEntity<?> cadastrar(@RequestBody @Valid EstadoRequest estadoRequest){
-        try {
-            estadoRequest.verificarEstadoRepetidoNoMesmoPais(paisRepository, entityManager);
-
-            Estado estado = estadoRequest.converter(paisRepository);
+            Estado estado = estadoRequest.converter(paisRepository, entityManager);
 
             estadoRepository.save(estado);
 
             return ResponseEntity.ok(new EstadoResponse(estado));
-
-        } catch (EstadoCadastradoNoPaisException e) {
-            throw new EstadoCadastradoNoPaisException("Você tentou cadastrar um estado que já existe nesse país!");
-        }
     }
 }

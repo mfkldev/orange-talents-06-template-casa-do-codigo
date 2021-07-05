@@ -1,6 +1,6 @@
 package br.com.zupacademy.marciosouza.casadocodigo.controller.dto;
 
-import br.com.zupacademy.marciosouza.casadocodigo.config.exceptions.EstadoCadastradoNoPaisException;
+import br.com.zupacademy.marciosouza.casadocodigo.config.exceptions.EstadoIllegalArumentExcpetion;
 import br.com.zupacademy.marciosouza.casadocodigo.config.validation.Existente;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Estado;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Pais;
@@ -25,7 +25,9 @@ public class EstadoRequest {
         this.idPais = idPais;
     }
 
-    public Estado converter(PaisRepository paisRepository){
+    public Estado converter(PaisRepository paisRepository, EntityManager entityManager){
+
+        verificarEstadoRepetidoNoMesmoPais(paisRepository, entityManager);
 
         Pais pais = paisRepository.getById(idPais);
 
@@ -49,7 +51,7 @@ public class EstadoRequest {
         query.setParameter("pNomeEstado", this.nome);
 
         if (!query.getResultList().isEmpty()) {
-            throw new EstadoCadastradoNoPaisException();
+            throw new EstadoIllegalArumentExcpetion("Estado já existente nesse país!");
         }
     }
 }

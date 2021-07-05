@@ -17,6 +17,9 @@ public class Pais {
     @OneToMany(mappedBy = "pais")
     private List<Estado> estado = new ArrayList<>();
 
+    @OneToMany(mappedBy = "pais")
+    private List<Cliente> clientes = new ArrayList<>();
+
     @Deprecated
     public Pais() {}
 
@@ -30,5 +33,9 @@ public class Pais {
 
     public List<Estado> getEstado() {
         return estado;
+    }
+
+    public void setEstado(List<Estado> estado) {
+        this.estado = estado;
     }
 }

@@ -1,7 +1,7 @@
 package br.com.zupacademy.marciosouza.casadocodigo.controller.dto;
 
 import br.com.zupacademy.marciosouza.casadocodigo.config.validation.Existente;
-import br.com.zupacademy.marciosouza.casadocodigo.config.validation.Duplicado;
+import br.com.zupacademy.marciosouza.casadocodigo.config.validation.Unico;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Autor;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Categoria;
 import br.com.zupacademy.marciosouza.casadocodigo.model.Livro;
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 
 public class LivroRequest {
 
-    @NotBlank @Duplicado(clazz = Livro.class, fieldName = "titulo")
+    @NotBlank @Unico(clazz = Livro.class, fieldName = "titulo")
     private String titulo;
 
     @NotBlank @Length(max = 500)
@@ -30,7 +30,7 @@ public class LivroRequest {
     @NotNull @Min(100)
     private Integer numeroDePaginas;
 
-    @NotBlank @Duplicado(clazz = Livro.class, fieldName = "isbn")
+    @NotBlank @Unico(clazz = Livro.class, fieldName = "isbn")
     private String isbn;
 
     @Future @JsonFormat(pattern = "dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
@@ -42,7 +42,7 @@ public class LivroRequest {
     @NotNull @Existente(fieldName = "id", clazz = Autor.class)
     private Long idAutor;
 
-    public Livro converterReqToLivro(AutorRepository autorRepository, CategoriaRepository categoriaRepository){
+    public Livro converter(AutorRepository autorRepository, CategoriaRepository categoriaRepository){
 
         Autor autor = autorRepository.getById(idAutor);
         Categoria categoria = categoriaRepository.getById(idCategoria);

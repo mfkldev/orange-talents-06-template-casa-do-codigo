@@ -8,7 +8,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.List;
 
-public class DuplicadoValidator implements ConstraintValidator<Duplicado, Object>{
+public class UnicoValidator implements ConstraintValidator<Unico, Object>{
 
     @Autowired
     private EntityManager entityManager;
@@ -17,7 +17,7 @@ public class DuplicadoValidator implements ConstraintValidator<Duplicado, Object
     private String fieldName;
 
     @Override
-    public void initialize(Duplicado constraintAnnotation) {
+    public void initialize(Unico constraintAnnotation) {
         this.fieldName = constraintAnnotation.fieldName();
         this.clazz = constraintAnnotation.clazz();
     }

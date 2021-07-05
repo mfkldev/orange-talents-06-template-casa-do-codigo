@@ -34,10 +34,9 @@ public class ErroDeValidacaoHandler {
     }
 
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(EstadoCadastradoNoPaisException.class)
-    public ErrosReponse handle2(EstadoCadastradoNoPaisException exception){
+    @ExceptionHandler(EstadoIllegalArumentExcpetion.class)
+    public ErrosReponse handle2(EstadoIllegalArumentExcpetion exception){
 
-        return new ErrosReponse("idPais", exception.getMessage()); //Refatorar quando for Pleno daqui a 2 meses.
-//      return new ErrosReponse(HttpStatus.NOT_FOUND.toString(), exception.getMessage());
+        return new ErrosReponse("idEstado", exception.getMessage()); //Refatorar quando for Pleno daqui a 2 meses.
     }
 }
